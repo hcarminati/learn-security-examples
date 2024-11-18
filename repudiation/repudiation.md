@@ -29,7 +29,7 @@ the user to identify themselves.
 attackers to repudiate their actions.
 
 3. Which design pattern is used in the secure version to address the vulnerability? Briefly explain how it works?
-- The design pattern used is the mediator pattern that allows you to intercept requests before
+- The design pattern used is the middleware pattern that allows you to intercept requests before
 they reach the main logic of the application. 
 - Before processing the req, the middleware is used for logging requests; it logs the HTTP method, 
 the route accessed, and the user’s IP address. This makes sure that there is a traceable record of
