@@ -1,2 +1,9 @@
 - Briefly explain the vulnerability and why the secure version is better at preventing repudiation than the insecure version.
+        In the insecure version, the server does not authenticates the user who is sending the
+        message. Messages are not associated with users or logs so its hard to trace and prove
+        who sent what.
+        In the secure version, the user is required to authenticate before sending message. Every
+        message is also logged so a traceable record of who performed what actions is kept to ensure
+        that there is evidence of who performed a certain action.
 - What additional security mechanisms can you incorporate to prevent such attacks?
+    Strong authentication and session management can be incorporated.

@@ -31,5 +31,17 @@ This will create a database in MongoDB called __infodisclosure__. Verify its pre
 Answer the following:
 
 1. Briefly explain the potential vulnerabilities in **insecure.ts** that can lead to a DoS attack.
+- The vulnerability was a NoSQL injection that lead to a denial of service attack. The id query param
+from the URL is passed directly into User.findOne() without any sanitization which allows an 
+attacker to manipulate the query and inject harmful queries. 
+
 2. Briefly explain how a malicious attacker can exploit them.
+- Because the id is passed directly into the query, the attacker can use other mongo operations to
+can lead to expensive queries and cause the server to crash. The system does not implement any rate
+limit si the attacker sends requests to overload the system and it crashes.
+
 3. Briefly explain the defensive techniques used in **secure.ts** to prevent the DoS vulnerability?
+- the **secure.ts** code implements a rate limiter that prevents the abuse by limiting the number of
+requests a user can make and returning a try later message if it is overloaded. There is also a try
+catch around the query that handles this error that could be thrown and responds with a 500 which 
+can prevent detailed error messages from leaking. 

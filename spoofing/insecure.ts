@@ -21,6 +21,7 @@ declare module 'express-session' {
 app.use(express.urlencoded({ extended: false }));
 
 // middleware to create a session
+// because it is middleware, it will get executed before everything else
 app.use(
   session({
     secret: "SOMESECRET",
